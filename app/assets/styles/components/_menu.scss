@@ -1,0 +1,81 @@
+.menu{
+  height:100vh;
+  width: 100%;
+  background-color: #1C1C1C;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  opacity: 0;
+  visibility: hidden;
+  overflow-x: hidden;
+
+  @include element('text-content'){
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top:8em;
+  }
+
+  .wrapper{
+    //border:1px solid red;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  @include element('description'){
+    width: 340px;
+    position: relative;
+    @include text(1.2em,300,
+            185%, center, 0,
+            .2em, uppercase, $color--offset-white);
+    margin: 0 auto;
+    margin-bottom: 3em;
+    &:first-child{
+      margin-bottom: 6em;
+      width: 290px;
+      &:after{
+        position:absolute;
+        content: '';
+        height: 2px;
+        width: 20%;
+        bottom: -.8em;
+        left: 50%;
+        transform: translate(-50%);
+        background-color: red;
+      }
+    }
+  }
+
+  @include element('caption'){
+    width: 100%;
+    @include text(6em,300,
+            100%, center, 0,
+            .1em, uppercase, $color--offset-white);
+    margin-bottom: 2em;
+    margin-top: 1em;
+  }
+
+  @include element('list'){
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @include element('list-items'){
+    margin-left: 9em;
+    margin-bottom: 9em;
+    .menu__links{
+      @include text(4em,300,
+              185%, center, 0,
+              .2em, uppercase, $color--offset-light-grey);
+      transition: color .3s ease-in;
+
+      &:hover{
+        color: $color--offset-white;
+      }
+    }
+
+  }
+}

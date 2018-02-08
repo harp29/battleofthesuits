@@ -1,0 +1,128 @@
+$bar-width: 50px;
+$bar-height: 2px;
+$bar-spacing: 12px;
+.navigation {
+  padding-top: 4em;
+  width: 100%;
+  position: fixed;
+  z-index: 3;
+
+  @include element('list') {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .list-item {
+
+      body {
+        background: #F44336;
+      }
+
+      .hamburger-menu {
+        position: relative;
+        width: $bar-width;
+        height: $bar-height + $bar-spacing*2;
+        cursor: pointer;
+      }
+
+      .bar,
+      .bar:after,
+      .bar:before {
+        width: $bar-width;
+        height: $bar-height;
+      }
+
+      .bar {
+        position: relative;
+        transform: translateY($bar-spacing);
+        background: rgba(255, 255, 255, 1);
+        transition: all 0ms 300ms;
+
+        &.animate {
+          background: rgba(255, 255, 255, 0);
+        }
+      }
+
+      .bar:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: $bar-spacing;
+        background: rgba(255, 255, 255, 1);
+        transition: bottom 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+      }
+
+      .bar:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: $bar-spacing;
+        background: rgba(255, 255, 255, 1);
+        transition: top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+      }
+
+      .bar.animate:after {
+        top: 0;
+        transform: rotate(45deg);
+        transition: top 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);;
+      }
+
+      .bar.animate:before {
+        bottom: 0;
+        transform: rotate(-45deg);
+        transition: bottom 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);;
+      }
+    }
+  }
+}
+
+  //.nav{
+  //  @include element('menu-cta'){
+  //    position: fixed;
+  //    height: 15%;
+  //    width: 12%;
+  //    z-index: 10;
+  //    display: flex;
+  //    justify-content: center;
+  //    align-items: center;
+  //    cursor: pointer;
+  //    color: white;
+  //    opacity: 0;
+  //
+  //    &:hover .st2{
+  //      opacity: 1;
+  //      stroke-dashoffset: 0;
+  //    }
+  //  }
+  //
+  //  @include element('logo-cta'){
+  //    width: 200px;
+  //    height: 40px;
+  //    background-color: #fff;
+  //    overflow: hidden;
+  //    position: absolute;
+  //    z-index: 6;
+  //    top: 5%;
+  //    left: 50%;
+  //    transform: translateX(-50%);
+  //    cursor: pointer;
+  //    .logo-short{
+  //      position: absolute;
+  //      top: 50%;
+  //      left: 50%;
+  //      width: 75%;
+  //      height: 100%;
+  //      @include bg-image('../images/logo-full.png');
+  //      background-size: contain;
+  //      transform: translate(-50%, -50%);
+  //    }
+  //  }
+  //}
+
+
+
+
+
+
+
+

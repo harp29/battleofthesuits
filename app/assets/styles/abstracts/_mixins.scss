@@ -1,0 +1,70 @@
+
+/* Text Mixin */
+@mixin text($font-size,$weight,
+ $line-height, $text-align, $word-spacing,
+$letter-spacing, $text-transform, $color){
+  font-size: $font-size;
+  font-weight: $weight;
+  line-height: $line-height;
+  text-align: $text-align;
+  word-spacing: $word-spacing;
+  letter-spacing: $letter-spacing;
+  text-transform: $text-transform;
+  color: $color;
+}
+
+/* BG Mixin */
+@mixin bg-image($background-image){
+  background: url($background-image);
+  background-repeat: no-repeat;
+  background-size: cover;
+  //background-attachment: fixed;
+  background-position: center center;
+}
+
+@mixin element($element){
+  &__#{$element}{
+    @content;
+  }
+}
+
+@mixin modifier($modifier){
+  &--#{$modifier}{
+    @content;
+  }
+};
+
+@mixin button($bcolor,
+$url,
+$x1,
+$y1,
+$bor,
+$col) {
+  background: $bcolor;
+  -webkit-mask: url($url);
+  mask: url($url);
+  -webkit-mask-size: $x1 $y1;
+  mask-size: $x1 $y1;
+  border: $bor;
+  color: $col;
+};
+
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) { @content };    
+    /*600px*/
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) { @content };     
+    /*900px*/
+  }
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) { @content };    /*1200px*/
+  }
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) { @content };    /*1800*/
+  }
+}
+
+

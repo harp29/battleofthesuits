@@ -1,0 +1,98 @@
+//variables for cta:
+$font-size: 1em;
+$weight: 300;
+$line-height: 0;
+$text-align: center;
+$word-spacing: 0;
+$letter-spacing: .3em;
+$text-transform: uppercase;
+$color: $color--offset-white;
+
+.cta{
+    border-radius: 50px; 
+    display: block;
+    width: 18em;
+    height: 4em;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    @include text($font-size,$weight,
+            $line-height, $text-align, $word-spacing,
+            $letter-spacing, $text-transform, $color);
+    overflow: hidden;
+    z-index: 2;
+   transition: .4s all ease-in;
+
+
+  &:after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    background-color: red;
+    width: 0%;
+    height: 100%;
+    transition: .4s all ease-in;
+    z-index: -1;
+  }
+
+  &:hover:after{
+    width: 100%;
+  }
+
+  @include modifier('red-ghost'){
+    border: 1px solid red;
+    color: white;
+  }
+
+  @include modifier('white-bg'){
+    background-color: $color--offset-white;
+    color: red;
+    transition: all .4s ease-in;
+
+    &:hover{
+      color: $color--offset-white;
+    }
+  }
+
+  @include modifier('red-bg'){
+    background-color: red;
+    color: white;
+    transition: all .4s ease-in;
+
+    &:after{
+      background-color: $color--offset-white;
+    }
+
+    &:hover{
+      color: red;
+      //background-color: $color--offset-white !important;
+    }
+  }
+
+
+}
+  /*@include modifier('grey'){
+    border-color: $color--offset-dark-grey;
+    color: $color--offset-light-grey;
+    transition: all .4s ease-out;
+
+    &:hover{
+      border-color: $color--offset-white;
+      color: $color--offset-white;
+    }
+  }
+
+  @include modifier('black'){
+    color: $color--offset-black;
+    border-color: darken($color--offset-light-grey, 80%);
+  }*/
+
+
+  
+
+  
+

@@ -1,0 +1,10 @@
+.row-custom {
+  max-width: $grid-width;
+  margin: 0 auto;
+
+  @include respond(tab-port) {
+    max-width: 80rem;
+    padding: 0 3rem;
+  }
+
+}

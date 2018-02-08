@@ -1,0 +1,35 @@
+@import "../abstracts/mixins";
+@import url(https://fonts.googleapis.com/css?family=Quattrocento+Sans);
+
+.loading-section{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    background-color: lighten($color--offset-black, .2%);
+    
+    #load-intro-cta{
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .intro{
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+        transform:translate(-50%, -30%);
+        width: 100%;
+
+        @include element('headings'){
+            margin-bottom: 10em;
+        }
+
+        @include element('caption'){
+            @include text(2em, 100, 0, center, 1px, 2px, capitalize, $color--offset-white);
+        }
+    }
+
+
+
+}
